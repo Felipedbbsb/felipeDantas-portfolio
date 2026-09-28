@@ -1,4 +1,5 @@
-// Edit these values to art-direct the background without touching the GLSL.
+// Edit only this block to art-direct the background without touching the GLSL.
+// Values are intentionally exposed: 0.0 is off, 1.0 is strong.
 export const SHADER_CONFIG = {
   speed: 0.045,
   intensity: 0.48,
@@ -12,6 +13,9 @@ export const SHADER_CONFIG = {
     acid: [0.94, 0.30, 0.035]
   }
 };
+
+// Lets you inspect or tune the live configuration from DevTools.
+if (typeof window !== 'undefined') window.PORTFOLIO_SHADER_CONFIG = SHADER_CONFIG;
 
 const canvas = document.querySelector('#shader-canvas');
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
