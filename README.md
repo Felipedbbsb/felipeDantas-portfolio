@@ -1,14 +1,14 @@
 # Felipe Dantas Borges — Portfolio
 
-Portfólio estático de game development, programming e design. O conteúdo dos projetos fica em `src/data.js`; imagens extraídas do PDF de referência ficam em `public/assets/`.
+Static portfolio for game development, programming and design. English is the default version at `/`; Portuguese is available at `/pt/`. Project content lives in `src/data.js`; images extracted from the reference PDF live in `public/assets/`.
 
-## Uso local
+## Local preview
 
 ```bash
 npm run serve
 ```
 
-Abra <http://localhost:4173>. Para criar o PDF automaticamente, instale as dependências e execute:
+Open <http://localhost:4173>. The PDF page is available at `/print.html` and `/print.html?lang=pt`. To create a PDF automatically, install the dependencies and run:
 
 ```bash
 npm install
@@ -16,14 +16,17 @@ npx playwright install chromium
 npm run pdf
 ```
 
-O PDF é gerado usando elementos HTML `<a>`, preservando hyperlinks clicáveis. A página `print.html` também pode ser impressa diretamente pelo navegador com `Ctrl/Cmd + P`.
+The PDF uses real HTML `<a>` elements, preserving clickable hyperlinks. `print.html` can also be printed directly from the browser with `Ctrl/Cmd + P`.
 
-## Adicionar projeto
+## Add a project
 
-Adicione um objeto em `src/data.js` e coloque a imagem correspondente em `public/assets/projects/`. O card aparecerá automaticamente na página principal e na versão PDF.
+Add a project object to `src/data.js` with English and Portuguese text, then place its image in `public/assets/projects/`. The card will appear automatically on both language versions and in the PDF.
 
-## Próximos ajustes
+## GitHub Pages
 
-- Substituir os links genéricos pelos links definitivos de GitHub, Steam, Itch.io e YouTube.
-- Confirmar a imagem principal de Retro Arsenal e as galerias secundárias de cada projeto.
-- Configurar GitHub Actions para publicar no GitHub Pages e gerar o PDF no build.
+The repository contains `.github/workflows/deploy-pages.yml`, which deploys the static site after every push to `master`. In the repository settings, set Pages > Build and deployment > Source to **GitHub Actions**. GitHub Pages supports this workflow through `configure-pages`, `upload-pages-artifact` and `deploy-pages`.
+
+## Next adjustments
+
+- Replace placeholder links with the final GitHub, Steam, Itch.io and YouTube URLs.
+- Confirm the main image for Retro Arsenal and secondary galleries for each project.
