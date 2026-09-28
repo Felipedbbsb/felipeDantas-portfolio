@@ -1,14 +1,92 @@
 # Felipe Dantas Borges — Portfolio
 
-Static portfolio for game development, programming and design. English is the default version at `/`; Portuguese is available at `/pt/`. Project content lives in `src/data.js`; images extracted from the reference PDF live in `public/assets/`.
+Portfólio pessoal de Felipe Dantas Borges, com projetos de desenvolvimento de jogos, programação e design.
 
-## Local preview
+Site: <https://felipedbbsb.github.io/felipeDantas-portfolio/>
+
+Versão em português: <https://felipedbbsb.github.io/felipeDantas-portfolio/pt/>
+
+## Como adicionar um projeto
+
+Você só precisa fazer três coisas:
+
+1. Colocar a imagem em `public/assets/projects/`.
+2. Adicionar um bloco de projeto em `src/data.js`.
+3. Enviar as alterações para o GitHub.
+
+O projeto aparecerá automaticamente no site em inglês, no site em português e nos PDFs.
+
+### 1. Adicione a imagem
+
+Use uma imagem `.jpg` ou `.png`. Prefira uma imagem horizontal, com pelo menos 1200 px de largura.
+
+Exemplo:
+
+```text
+public/assets/projects/meu-jogo.jpg
+```
+
+### 2. Copie este modelo
+
+Adicione o bloco abaixo dentro da lista `projects` em `src/data.js`:
+
+```js
+{
+  year: '2026',
+  title: bilingual('My Game', 'Meu Jogo'),
+  type: bilingual('Action game', 'Jogo de ação'),
+  image: 'meu-jogo.jpg',
+  description: bilingual(
+    'A short description in English.',
+    'Uma descrição curta em português.'
+  ),
+  tags: ['Unity', 'C#'],
+  links: [
+    { label: 'GitHub', url: 'https://github.com/...' },
+    { label: 'Itch.io', url: 'https://itch.io/...' }
+  ]
+}
+```
+
+Preencha sempre os dois idiomas. Se não houver um link, use uma lista vazia:
+
+```js
+links: []
+```
+
+O modelo pronto também está em [`docs/project-template.js`](docs/project-template.js).
+
+### 3. Veja antes de publicar
+
+Para conferir o resultado no computador:
 
 ```bash
 npm run serve
 ```
 
-Open <http://localhost:4173>. The PDF page is available at `/print.html` and `/print.html?lang=pt`. To create a PDF automatically, install the dependencies and run:
+Depois abra <http://localhost:4173>.
+
+Para verificar se a imagem, os textos e os links do projeto estão corretos:
+
+```bash
+npm run check
+```
+
+### 4. Publique
+
+```bash
+git add .
+git commit -m "feat: add my game to portfolio"
+git push
+```
+
+O GitHub Pages publica a alteração automaticamente depois do `push`.
+
+## PDF
+
+O botão `PDF / resume` ou `PDF / currículo` abre a versão de impressão e o navegador mostra a opção de salvar como PDF. Os links continuam clicáveis no arquivo salvo.
+
+Para gerar os dois arquivos diretamente:
 
 ```bash
 npm install
@@ -16,17 +94,21 @@ npx playwright install chromium
 npm run pdf
 ```
 
-The PDF uses real HTML `<a>` elements, preserving clickable hyperlinks. `print.html` can also be printed directly from the browser with `Ctrl/Cmd + P`.
+Os arquivos aparecem em:
 
-## Add a project
+```text
+dist/felipe-dantas-borges-en.pdf
+dist/felipe-dantas-borges-pt.pdf
+```
 
-Add a project object to `src/data.js` with English and Portuguese text, then place its image in `public/assets/projects/`. The card will appear automatically on both language versions and in the PDF.
+## Onde editar cada parte
 
-## GitHub Pages
+| O que você quer mudar | Arquivo |
+| --- | --- |
+| Projetos, imagens, descrições e links | `src/data.js` |
+| Textos gerais em inglês e português | `src/data.js` |
+| Cores, fontes e animações | `src/styles.css` |
+| Fundo procedural | `src/shader.js` |
+| Conteúdo do currículo PDF | `print.html` |
 
-The repository contains `.github/workflows/deploy-pages.yml`, which deploys the static site after every push to `master`. In the repository settings, set Pages > Build and deployment > Source to **GitHub Actions**. GitHub Pages supports this workflow through `configure-pages`, `upload-pages-artifact` and `deploy-pages`.
-
-## Next adjustments
-
-- Replace placeholder links with the final GitHub, Steam, Itch.io and YouTube URLs.
-- Confirm the main image for Retro Arsenal and secondary galleries for each project.
+Se você adicionar projetos com o modelo acima, não precisa editar os componentes da página.

@@ -3,6 +3,6 @@
   "private": true,
   "version": "0.1.0",
   "type": "module",
-  "scripts": { "serve": "python3 -m http.server 4173", "pdf": "node scripts/generate-pdf.mjs" },
+  "scripts": { "serve": "python3 -m http.server 4173", "check": "node scripts/validate-projects.mjs", "pdf": "node scripts/generate-pdf.mjs" },
   "devDependencies": { "playwright": "^1.52.0" }
 }
