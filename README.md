@@ -108,7 +108,21 @@ dist/felipe-dantas-borges-pt.pdf
 | Projetos, imagens, descrições e links | `src/data.js` |
 | Textos gerais em inglês e português | `src/data.js` |
 | Cores, fontes e animações | `src/styles.css` |
-| Fundo procedural | `src/shader.js` |
+| Fundo procedural e seus parâmetros | `src/shader.js` |
 | Conteúdo do currículo PDF | `print.html` |
 
 Se você adicionar projetos com o modelo acima, não precisa editar os componentes da página.
+
+## Personalizar o shader
+
+Os principais controles ficam no início de `src/shader.js`, em `SHADER_CONFIG`:
+
+```js
+speed: 0.045,     // velocidade do movimento
+intensity: 0.42,  // força das cores
+warp: 0.82,       // deformação do campo
+contrast: 1.18,   // contraste
+grain: 0.025      // granulação
+```
+
+As cores ficam em `palette`. Você pode trocar os valores RGB e publicar novamente sem mexer no restante do shader.
