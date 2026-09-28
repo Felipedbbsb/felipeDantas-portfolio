@@ -1,0 +1,8 @@
+{
+  "name": "felipe-dantas-portfolio",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": { "serve": "python3 -m http.server 4173", "pdf": "node scripts/generate-pdf.mjs" },
+  "devDependencies": { "playwright": "^1.52.0" }
+}
