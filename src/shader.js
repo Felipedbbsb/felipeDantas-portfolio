@@ -1,15 +1,15 @@
 // Edit these values to art-direct the background without touching the GLSL.
 export const SHADER_CONFIG = {
   speed: 0.045,
-  intensity: 0.42,
-  warp: 0.82,
-  contrast: 1.18,
-  grain: 0.025,
+  intensity: 0.48,
+  warp: 0.92,
+  contrast: 1.28,
+  grain: 0.018,
   palette: {
-    deep: [0.004, 0.005, 0.012],
-    violet: [0.22, 0.06, 0.34],
-    cyan: [0.02, 0.40, 0.52],
-    acid: [0.66, 0.78, 0.08]
+    deep: [0.002, 0.004, 0.012],
+    violet: [0.42, 0.012, 0.22],
+    cyan: [0.0, 0.50, 0.64],
+    acid: [0.94, 0.30, 0.035]
   }
 };
 

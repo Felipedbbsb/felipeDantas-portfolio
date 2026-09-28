@@ -13,7 +13,9 @@ const server = createServer(async (request, response) => {
 });
 
 await mkdir(output, { recursive: true });
-server.listen(4174, async () => {
+await new Promise((resolve, reject) => server.listen(4174, resolve).on('error', reject));
+
+try {
   const browser = await chromium.launch();
   for (const [language, query] of [['en',''], ['pt','?lang=pt']]) {
     const page = await browser.newPage();
@@ -22,4 +24,6 @@ server.listen(4174, async () => {
     await page.close();
   }
   await browser.close(); server.close(); console.log('Generated dist/felipe-dantas-borges-en.pdf and dist/felipe-dantas-borges-pt.pdf');
-});
+} finally {
+  server.close();
+}
