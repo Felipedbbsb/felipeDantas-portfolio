@@ -1,0 +1,436 @@
+@import './project-tokens.css';
+
+:root {
+  --print-accent: #e6257f;
+  --print-ink: #17151d;
+  --print-muted: #575565;
+  --print-line: #d8d5dc;
+}
+
+@page {
+  size: A4;
+  margin: 13mm 14mm 15mm;
+}
+
+@media print {
+  html,
+  body {
+    margin: 0;
+    background: #fff;
+    color: var(--print-ink);
+  }
+
+  body {
+    padding: 0;
+    font: 400 9.5pt/1.42 Arial, sans-serif;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  #print-content {
+    width: 100%;
+  }
+
+  .print-header,
+  .print-section,
+  .print-project {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .print-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 42mm;
+    gap: 12mm;
+    align-items: start;
+    min-height: 47mm;
+    padding-bottom: 7mm;
+    border-bottom: 1.5px solid var(--print-accent);
+  }
+
+  .print-header h1 {
+    margin: 2mm 0 1.5mm;
+    color: var(--print-accent);
+    font-size: 31pt;
+    line-height: .86;
+    letter-spacing: -.09em;
+  }
+
+  .print-header h1 em,
+  .print-section h2 em {
+    color: var(--print-ink);
+    font-family: Georgia, serif;
+    font-weight: 400;
+  }
+
+  .print-kicker,
+  .print-section-label {
+    margin: 0;
+    color: var(--print-accent);
+    font: 700 7pt/1.2 'Courier New', monospace;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .print-profile {
+    width: 42mm;
+    height: 42mm;
+    border: 2px solid var(--print-accent);
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .print-alias {
+    margin: 0 0 4mm;
+    color: var(--print-muted);
+    font: 8pt/1.2 'Courier New', monospace;
+    text-transform: uppercase;
+  }
+
+  .print-alias strong {
+    color: var(--print-accent);
+  }
+
+  .print-lede {
+    max-width: 118mm;
+    margin: 0 0 3mm;
+    font-size: 11pt;
+    line-height: 1.3;
+  }
+
+  .print-contact {
+    margin: 0;
+    color: var(--print-muted);
+    font: 7.5pt 'Courier New', monospace;
+  }
+
+  .print-contact a,
+  .print-link {
+    color: #a7195c;
+    text-decoration: underline;
+    text-decoration-thickness: .5px;
+    text-underline-offset: 1px;
+  }
+
+  .print-site-link {
+    display: inline-flex;
+    margin: 0 0 3mm;
+    padding: 1.8mm 2.5mm;
+    background: var(--print-accent);
+    color: #fff;
+    font: 700 7pt/1 'Courier New', monospace;
+    letter-spacing: .04em;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .print-section {
+    display: grid;
+    grid-template-columns: 25mm minmax(0, 1fr);
+    gap: 8mm;
+    padding: 7mm 0;
+    border-bottom: .5px solid var(--print-line);
+  }
+
+  .print-section h2 {
+    margin: 0 0 4mm;
+    color: var(--print-accent);
+    font-size: 22pt;
+    line-height: .9;
+    letter-spacing: -.08em;
+  }
+
+  .print-body {
+    margin: 0;
+    color: var(--print-ink);
+  }
+
+  .print-lead {
+    max-width: 150mm;
+    font-size: 10pt;
+  }
+
+  .print-facts {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 4mm 8mm;
+    margin-top: 5mm;
+  }
+
+  .print-fact {
+    display: grid;
+    gap: 1.5mm;
+  }
+
+  .print-fact strong {
+    color: var(--print-ink);
+    font: 700 7pt/1.2 'Courier New', monospace;
+    text-transform: uppercase;
+  }
+
+  .print-fact span {
+    color: var(--print-muted);
+    font-size: 8.5pt;
+  }
+
+  .print-tool-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5mm;
+  }
+
+  .print-tool-grid h3 {
+    margin: 0 0 1.5mm;
+    color: var(--print-accent);
+    font-size: 9pt;
+  }
+
+  .print-tool-grid p {
+    margin: 0;
+    color: var(--print-muted);
+    font-size: 8pt;
+  }
+
+  .print-projects {
+    display: block;
+    break-inside: auto;
+    break-before: page;
+    page-break-before: always;
+    border-bottom: 0;
+  }
+
+  .print-projects > .print-section-label {
+    float: left;
+    width: 25mm;
+  }
+
+  .print-projects > div {
+    margin-left: 33mm;
+  }
+
+  .print-project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-content: start;
+    align-items: start;
+    gap: 5mm;
+    margin-top: 5mm;
+  }
+
+  .print-project-page + .print-project-page {
+    break-before: page;
+    page-break-before: always;
+  }
+
+  .print-project {
+    display: block;
+    width: 100%;
+    margin: 0;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    vertical-align: top;
+  }
+
+  .print-project-media {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 42mm;
+    overflow: hidden;
+    border-bottom: .5mm solid var(--print-accent);
+    background: #090b13;
+  }
+
+  .print-project-media::after {
+    display: none;
+  }
+
+  .print-project-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: var(--project-image-fit);
+    object-position: var(--project-image-position);
+  }
+
+  .print-project-content {
+    padding-top: 2.5mm;
+  }
+
+  .print-project h3 {
+    margin: 0 0 1.5mm;
+    color: var(--print-ink);
+    font-size: 10.5pt;
+    line-height: 1.05;
+  }
+
+  .print-project p {
+    margin: 0 0 2.5mm;
+    color: var(--print-muted);
+    font-size: 7pt;
+    line-height: 1.3;
+  }
+
+  .print-tags,
+  .print-links {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 1;
+    column-gap: 1.5mm;
+    row-gap: 2mm;
+  }
+
+  .print-links {
+    margin-top: 2mm;
+  }
+
+  .print-tags span,
+  .print-link {
+    display: inline-block;
+    padding: .9mm 1.2mm;
+    border: .5px solid var(--print-ink);
+    border-radius: 1mm;
+    font: 700 6pt/1 'Courier New', monospace;
+    text-transform: uppercase;
+  }
+
+  .print-tags span {
+    color: var(--print-ink);
+  }
+
+  .print-link {
+    border-color: var(--print-accent);
+    background: var(--print-accent);
+    color: #fff;
+    font-size: 6.5pt;
+    text-decoration: none;
+  }
+
+  .print-link::after,
+  .print-contact-links a::after {
+    margin-left: 1mm;
+    content: '↗';
+    font-size: 1.1em;
+    line-height: 0;
+  }
+
+  .print-contact-final {
+    break-before: auto;
+    padding-inline: 8mm;
+    border-bottom: 0;
+    background: #080810;
+    color: #fff;
+  }
+
+  .print-tools {
+    break-before: auto;
+    page-break-before: auto;
+  }
+
+  .print-tools + .print-contact-final {
+    padding-top: 4mm;
+    padding-bottom: 4mm;
+  }
+
+  .print-contact-final h2 {
+    margin-bottom: 3mm;
+    color: var(--print-accent);
+  }
+
+  .print-contact-final h2 em {
+    color: #fff;
+  }
+
+  .print-contact-final .print-body,
+  .print-contact-final .print-contact {
+    color: #e6e2e7;
+  }
+
+  .print-contact-final .print-contact a {
+    color: #fff;
+  }
+
+  .print-contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5mm;
+    margin-top: 4mm;
+  }
+
+  .print-contact-links a {
+    display: inline-flex;
+    padding: 1.4mm 1.8mm;
+    border: .5px solid rgba(255, 255, 255, .6);
+    color: #fff;
+    font: 700 6.5pt/1 'Courier New', monospace;
+    text-decoration: none;
+  }
+
+  .print-contact-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 32mm;
+    gap: 7mm;
+    align-items: center;
+  }
+
+  .print-contact-photo {
+    position: relative;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 1px solid var(--print-accent);
+  }
+
+  .print-contact-photo::after {
+    position: absolute;
+    inset: 0;
+    content: '';
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(230, 37, 127, .48), transparent 55%);
+  }
+
+  .print-contact-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .print-contact-socials {
+    display: flex;
+    gap: 2.5mm;
+    margin-top: 4mm;
+  }
+
+  .print-contact-socials a {
+    display: grid;
+    place-items: center;
+    width: 6mm;
+    height: 6mm;
+    border: .5px solid rgba(255, 255, 255, .65);
+  }
+
+  .print-contact-socials svg,
+  .print-contact-socials img {
+    width: 3.2mm;
+    height: 3.2mm;
+    fill: #fff;
+  }
+}
+
+@media screen {
+  .print-header,
+  .print-section {
+    max-width: 900px;
+    margin-inline: auto;
+  }
+
+  .print-profile {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+  }
+}

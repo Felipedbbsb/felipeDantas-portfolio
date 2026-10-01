@@ -1,0 +1,5 @@
+.project-card,
+.print-project {
+  --project-accent: #e6257f;
+  --project-wash: rgba(4, 5, 11, .18);
+}

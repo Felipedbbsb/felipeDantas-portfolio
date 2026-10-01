@@ -18,7 +18,7 @@ O projeto aparecerá automaticamente no site em inglês, no site em português e
 
 ### 1. Adicione a imagem
 
-Use uma imagem `.jpg` ou `.png`. Prefira uma imagem horizontal, com pelo menos 1200 px de largura.
+Use uma imagem `.jpg` ou `.png`. Prefira uma imagem horizontal com proporção próxima de `1.6:1` e pelo menos 1200 px de largura. A mesma composição será usada no site e no PDF.
 
 Exemplo:
 
@@ -32,15 +32,21 @@ Adicione o bloco abaixo dentro da lista `projects` em `src/data.js`:
 
 ```js
 {
-  year: '2026',
   title: bilingual('My Game', 'Meu Jogo'),
-  type: bilingual('Action game', 'Jogo de ação'),
-  image: 'meu-jogo.jpg',
+  media: {
+    source: 'meu-jogo.jpg',
+    printSource: 'meu-jogo.jpg',
+    fit: 'cover',
+    printFit: 'cover',
+    position: 'center',
+    printPosition: 'center'
+  },
   description: bilingual(
     'A short description in English.',
     'Uma descrição curta em português.'
   ),
   tags: ['Unity', 'C#'],
+  tone: 'cyan',
   links: [
     { label: 'GitHub', url: 'https://github.com/...' },
     { label: 'Itch.io', url: 'https://itch.io/...' }
@@ -48,7 +54,7 @@ Adicione o bloco abaixo dentro da lista `projects` em `src/data.js`:
 }
 ```
 
-Preencha sempre os dois idiomas. Se não houver um link, use uma lista vazia:
+Preencha sempre os dois idiomas. `tone` controla a cor e o gradiente do card nos dois formatos. Quando uma imagem precisar de outro enquadramento no PDF, adicione um arquivo específico em `printSource` e ajuste `printPosition`. Se não houver um link, use uma lista vazia:
 
 ```js
 links: []
@@ -84,7 +90,7 @@ O GitHub Pages publica a alteração automaticamente depois do `push`.
 
 ## PDF
 
-O botão `PDF / resume` ou `PDF / currículo` abre a versão de impressão e o navegador mostra a opção de salvar como PDF. Os links continuam clicáveis no arquivo salvo.
+O botão `Download PDF` baixa diretamente a versão correspondente ao idioma atual. Os links continuam clicáveis no arquivo.
 
 Para gerar os dois arquivos diretamente:
 
@@ -97,8 +103,8 @@ npm run pdf
 Os arquivos aparecem em:
 
 ```text
-dist/felipe-dantas-borges-en.pdf
-dist/felipe-dantas-borges-pt.pdf
+public/downloads/felipe-dantas-borges-en.pdf
+public/downloads/felipe-dantas-borges-pt.pdf
 ```
 
 ## Onde editar cada parte
@@ -109,7 +115,9 @@ dist/felipe-dantas-borges-pt.pdf
 | Textos gerais em inglês e português | `src/data.js` |
 | Cores, fontes e animações | `src/styles.css` |
 | Fundo procedural e seus parâmetros | `src/shader.js` |
-| Conteúdo do currículo PDF | `print.html` |
+| Estrutura compartilhada dos cards | `src/project-card.js` |
+| Cores e gradientes dos cards | `src/project-tokens.css` |
+| Layout do currículo PDF | `src/print.css` e `src/print-render.js` |
 
 Se você adicionar projetos com o modelo acima, não precisa editar os componentes da página.
 

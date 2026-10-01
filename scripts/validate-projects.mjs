@@ -9,8 +9,12 @@ const requiredText = (value) => value && value.en?.trim() && value.pt?.trim();
 
 projects.forEach((project, index) => {
   const label = `Project ${index + 1} (${project.title?.en || 'untitled'})`;
-  if (!project.year || !requiredText(project.title) || !requiredText(project.type) || !requiredText(project.description)) errors.push(`${label}: missing year, title, type or bilingual description`);
-  if (!project.image || !existsSync(resolve(root, 'public/assets/projects', project.image))) errors.push(`${label}: image not found: ${project.image}`);
+  if (!requiredText(project.title) || !requiredText(project.description)) errors.push(`${label}: missing title or bilingual description`);
+  const media = project.media;
+  if (!media?.source || !existsSync(resolve(root, 'public/assets/projects', media.source))) errors.push(`${label}: web image not found: ${media?.source || 'missing'}`);
+  if (!media?.printSource || !existsSync(resolve(root, 'public/assets/projects', media.printSource))) errors.push(`${label}: print image not found: ${media?.printSource || 'missing'}`);
+  if (!['cover', 'contain'].includes(media?.fit) || !['cover', 'contain'].includes(media?.printFit)) errors.push(`${label}: invalid media fit`);
+  if (!media?.position || !media?.printPosition) errors.push(`${label}: missing media position`);
   project.links?.forEach((link) => { try { new URL(link.url); } catch { errors.push(`${label}: invalid link: ${link.url}`); } });
 });
 

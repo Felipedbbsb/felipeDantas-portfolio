@@ -1,9 +1,13 @@
-// Copie este objeto para a lista `projects` em src/data.js.
 {
-  year: '2026',
   title: bilingual('Project title', 'Título do projeto'),
-  type: bilingual('Project type', 'Tipo do projeto'),
-  image: 'project-image.jpg',
+  media: {
+    source: 'project-image.jpg',
+    printSource: 'project-image.jpg',
+    fit: 'cover',
+    printFit: 'cover',
+    position: 'center',
+    printPosition: 'center'
+  },
   description: bilingual(
     'Short description in English.',
     'Descrição curta em português.'
