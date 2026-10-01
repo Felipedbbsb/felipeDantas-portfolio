@@ -593,6 +593,10 @@ h2 em {
   letter-spacing: -.06em;
 }
 
+.project-details-toggle {
+  display: none;
+}
+
 .project-overlay p {
   color: #f2f3f5;
   font-size: 13px;
@@ -964,9 +968,8 @@ h2 em {
     bottom: 8px;
     left: 8px;
     padding: 14px;
-    border-color: rgba(255, 255, 255, .16);
-    background: rgba(5, 6, 14, .86);
-    text-shadow: none;
+    border-color: transparent;
+    background: transparent;
   }
 
   .project-overlay h3 {
@@ -977,16 +980,61 @@ h2 em {
     font-size: 13px;
   }
 
-  .project-overlay p,
-  .project-overlay .tag-list,
-  .project-overlay .project-links {
+  .project-details-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 9px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: var(--text);
+    font: 500 10px/1 var(--mono);
+    text-transform: uppercase;
+  }
+
+  .project-details-toggle span {
+    color: var(--accent);
+    font-size: 16px;
+  }
+
+  .project-card:not(.is-expanded):hover .project-overlay,
+  .project-card:not(.is-expanded):focus-within .project-overlay {
+    transform: none;
+    border-color: transparent;
+    background: transparent;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, .92);
+  }
+
+  .project-card:not(.is-expanded):hover .project-overlay p,
+  .project-card:not(.is-expanded):hover .project-overlay .tag-list,
+  .project-card:not(.is-expanded):hover .project-overlay .project-links,
+  .project-card:not(.is-expanded):focus-within .project-overlay p,
+  .project-card:not(.is-expanded):focus-within .project-overlay .tag-list,
+  .project-card:not(.is-expanded):focus-within .project-overlay .project-links {
+    max-height: 0;
+    margin: 0;
+    padding-block: 0;
+    opacity: 0;
+    transform: translateY(8px);
+  }
+
+  .project-card.is-expanded .project-overlay {
+    border-color: rgba(255, 255, 255, .16);
+    background: rgba(5, 6, 14, .9);
+    text-shadow: none;
+  }
+
+  .project-card.is-expanded .project-overlay p,
+  .project-card.is-expanded .project-overlay .tag-list,
+  .project-card.is-expanded .project-overlay .project-links {
     max-height: 1000px;
     margin-bottom: 10px;
     opacity: 1;
     transform: none;
   }
 
-  .project-overlay .project-links {
+  .project-card.is-expanded .project-overlay .project-links {
     margin-top: 14px;
   }
 

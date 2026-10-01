@@ -26,6 +26,7 @@ export const renderProjectCard = (project, {
   variant = 'web',
   assetBase = '',
   index = 0,
+  detailsLabel = 'Details',
   descriptionTransform = (value) => value,
   labelForLink = (label) => label
 }) => {
@@ -61,6 +62,7 @@ export const renderProjectCard = (project, {
         </a>
         <div class="project-overlay">
           <h3>${escapeHtml(title)}</h3>
+          <button class="project-details-toggle" type="button" aria-expanded="false">${escapeHtml(detailsLabel)} <span aria-hidden="true">+</span></button>
           <p>${escapeHtml(description)}</p>
           ${renderTags(project.tags, 'tag-list')}
           <div class="project-links">${renderLinks(project.links, language, 'button button-small', labelForLink)}</div>

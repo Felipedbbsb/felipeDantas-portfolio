@@ -52,7 +52,19 @@ const applyCopy = () => {
 
 const renderProjects = () => {
   const grid = document.querySelector('#project-grid');
-  if (grid) grid.innerHTML = projects.map((project, index) => renderProjectCard(project, { language, assetBase, index })).join('');
+  const detailsLabel = language === 'pt' ? 'Detalhes' : 'Details';
+  if (grid) grid.innerHTML = projects.map((project, index) => renderProjectCard(project, { language, assetBase, index, detailsLabel })).join('');
+};
+
+const setupProjectDetails = () => {
+  document.querySelectorAll('.project-details-toggle').forEach((button) => {
+    button.addEventListener('click', () => {
+      const card = button.closest('.project-card');
+      const expanded = card?.classList.toggle('is-expanded');
+      button.setAttribute('aria-expanded', String(expanded));
+      button.querySelector('span').textContent = expanded ? '−' : '+';
+    });
+  });
 };
 
 const revealProjects = () => {
@@ -74,4 +86,5 @@ const revealProjects = () => {
 addBrandPhoto();
 applyCopy();
 renderProjects();
+setupProjectDetails();
 revealProjects();
