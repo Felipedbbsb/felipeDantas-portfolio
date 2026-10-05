@@ -428,15 +428,15 @@ h2 em {
 .intro-grid h2,
 .section-heading h2,
 .contact-content h2 {
-  margin: 0 0 38px;
+  margin: 0 0 28px;
   font-size: clamp(44px, 6vw, 82px);
   line-height: .92;
 }
 
 .body-large {
-  max-width: 650px;
+  max-width: 720px;
   color: #d8d8d0;
-  font-size: 22px;
+  font-size: 24px;
   line-height: 1.4;
   letter-spacing: -.04em;
 }
@@ -668,7 +668,7 @@ h2 em {
 
 .skill-columns {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(24px, 4vw, 52px);
   margin-top: 0;
 }
@@ -930,7 +930,7 @@ h2 em {
   }
 
   .body-large {
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .facts {

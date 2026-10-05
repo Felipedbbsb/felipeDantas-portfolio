@@ -75,7 +75,6 @@ export const renderPrintDocument = ({ projects, translation, language }) => {
       <div class="print-tool-grid">
         <div><h3>${t['skills.languages']}</h3><p>${t['print.languages']}</p></div>
         <div><h3>${t['skills.development']}</h3><p>${t['print.development']}</p></div>
-        <div><h3>${t['skills.languagesSpoken']}</h3><p>${t['skills.spoken']}</p></div>
       </div>
     </section>
 

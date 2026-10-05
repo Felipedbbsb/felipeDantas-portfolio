@@ -18,7 +18,7 @@ const defaultCopy = {
     'hero.contact': 'Say Hello :) <span aria-hidden="true" class="arrow arrow-up"></span>',
     'contact.title': 'Let’s make<br><em>something playable.</em>',
     'contact.lede': 'Open to freelance work, collaborations, and conversations about creative technology and real-time graphics.',
-    'about.body': 'I am a Computer Science graduate from the University of Brasília (UnB) working across creative technology and game development. I was the principal programmer and game designer on Dream Delirio’s and XIII — A Final Game of Tarot with Death, with games released on Steam. I build gameplay systems, Unity and Godot projects, custom C++ and SDL2 engines, shaders and procedural graphics, with experience in FMOD, Wwise and performance optimization. I also teach Computer Graphics at UnB as a volunteer professor.',
+    'about.body': 'I am a Computer Science graduate from the University of Brasília (UnB), specializing in creative technology and game development. I served as principal programmer and game designer on Dream Delirio’s and XIII — A Final Game of Tarot with Death. XIII is available on Steam, while Dream Delirio’s has a Steam page and a playable demo. My work spans gameplay systems, Unity and Godot development, custom C++/SDL2 engines, shaders, procedural graphics, audio integration with FMOD and Wwise, and performance optimization. I am also a Guest Lecturer in Computer Graphics at UnB.',
   },
   pt: {
     'nav.about': 'Info',
@@ -31,7 +31,7 @@ const defaultCopy = {
     'hero.contact': 'Chama aí!! <span aria-hidden="true" class="arrow arrow-up"></span>',
     'contact.title': 'Vamos fazer<br><em>algo jogável.</em>',
     'contact.lede': 'Aberto a trabalhos freelance, colaborações e conversas sobre tecnologia criativa e gráficos em tempo real.',
-    'about.body': 'Sou formado em Ciência da Computação pela Universidade de Brasília (UnB) e atuo entre tecnologia criativa e desenvolvimento de jogos. Fui o principal programador e game designer de Dream Delirio’s e XIII — A Final Game of Tarot with Death, com jogos lançados na Steam. Desenvolvo sistemas de gameplay, projetos em Unity e Godot, engines próprias em C++ e SDL2, shaders e gráficos procedurais, além de trabalhar com FMOD, Wwise e otimização de performance. Também ministro aulas de Computação Gráfica na UnB como professor voluntário.',
+    'about.body': 'Sou formado em Ciência da Computação pela Universidade de Brasília (UnB), com foco em tecnologia criativa e desenvolvimento de jogos. Atuei como principal programador e game designer em Dream Delirio’s e XIII — A Final Game of Tarot with Death. XIII está disponível na Steam, enquanto Dream Delirio’s possui uma página na Steam e uma demo jogável. Meu trabalho abrange sistemas de gameplay, desenvolvimento em Unity e Godot, engines próprias em C++/SDL2, shaders, gráficos procedurais, integração de áudio com FMOD e Wwise e otimização de performance. Também sou docente convidado de Computação Gráfica na UnB.',
   }
 };
 
