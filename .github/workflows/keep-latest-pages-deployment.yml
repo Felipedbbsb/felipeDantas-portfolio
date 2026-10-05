@@ -1,0 +1,46 @@
+name: Keep latest Pages deployment
+
+on:
+  deployment_status:
+
+permissions:
+  actions: write
+  deployments: write
+
+jobs:
+  cleanup:
+    if: github.event.deployment.environment == 'github-pages' && github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const currentDeploymentId = context.payload.deployment.id;
+            const deployments = await github.paginate(github.rest.repos.listDeployments, {
+              owner,
+              repo,
+              environment: 'github-pages',
+              per_page: 100
+            });
+
+            for (const deployment of deployments) {
+              if (deployment.id === currentDeploymentId) continue;
+              await github.rest.repos.createDeploymentStatus({
+                owner,
+                repo,
+                deployment_id: deployment.id,
+                state: 'inactive'
+              });
+              await github.rest.repos.deleteDeployment({
+                owner,
+                repo,
+                deployment_id: deployment.id
+              });
+            }
+
+            await github.rest.actions.deleteWorkflowRun({
+              owner,
+              repo,
+              run_id: context.runId
+            });
