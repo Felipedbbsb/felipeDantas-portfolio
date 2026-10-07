@@ -207,6 +207,7 @@
   .print-projects > .print-section-label {
     float: left;
     width: 25mm;
+    white-space: nowrap;
   }
 
   .print-projects > div {
@@ -255,6 +256,14 @@
     height: 100%;
     object-fit: var(--project-image-fit);
     object-position: var(--project-image-position);
+  }
+
+  html[data-lang='pt'] .print-project-grid {
+    gap: 4mm 5mm;
+  }
+
+  html[data-lang='pt'] .print-project-media {
+    height: 39mm;
   }
 
   .print-project-content {
